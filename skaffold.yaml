@@ -1,0 +1,46 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: apps
+build:
+  artifacts:
+  - image: sjarosz/area1
+    context: micro/ui/area1
+  - image: sjarosz/area2
+    context: micro/ui/area2
+  - image: sjarosz/area3
+    context: micro/ui/area3
+  - image: sjarosz/echo-svc
+    context: micro/ui/echo
+  - image: sjarosz/home-svc
+    context: micro/ui/home
+  - image: sjarosz/sdk-demo
+    context: sdk-demo
+  - image: sjarosz/frsdk
+    context: frsdk    
+#  - image: sjarosz/springboot
+#    context: springboot/gs-spring-boot-docker
+#    buildpacks:
+#      builder: gcr.io/buildpacks/builder:v1    
+
+deploy:
+  kubectl:
+    manifests:
+    - micro/ui/area1/deployment.yaml
+    - micro/ui/area1/service.yaml
+    - micro/ui/area2/deployment.yaml
+    - micro/ui/area2/service.yaml
+    - micro/ui/area3/deployment.yaml
+    - micro/ui/area3/service.yaml
+#    - micro/ui/baseline/deployment.yaml
+#    - micro/ui/baseline/service.yaml
+    - micro/ui/echo/deployment.yaml
+    - micro/ui/echo/service.yaml
+    - micro/ui/home/deployment.yaml
+    - micro/ui/home/service.yaml
+    - sdk-demo/deployment.yaml
+    - sdk-demo/service.yaml
+    - frsdk/deployment.yaml
+    - frsdk/service.yaml    
+#    - springboot/gs-spring-boot-docker/deployment.yaml
+#    - springboot/gs-spring-boot-docker/service.yaml

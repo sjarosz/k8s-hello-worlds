@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: area1 
+  labels:
+    app: area1
+spec:
+  clusterIP: None
+  ports:
+  - name: http
+    port: 80
+  selector:
+    app: area1

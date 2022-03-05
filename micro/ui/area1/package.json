@@ -1,0 +1,15 @@
+{
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "anon",
+  "main": "server.js",
+  "scripts": {
+    "serve": "node main.js",
+    "dev": "supervisor  main.js"
+    },
+  "dependencies": {
+    "vue": "^3.2.31",
+    "express": "4.x"
+  }
+}

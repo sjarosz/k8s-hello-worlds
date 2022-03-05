@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: area2 
+  labels:
+    app: area2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: area2
+  template:
+    metadata:
+      labels:
+        app: area2
+    spec:
+      containers:
+      - name: area2
+        image: sjarosz/area2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

@@ -1,0 +1,18 @@
+# build stage
+FROM node:lts-alpine as build-stage
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run 
+
+# production stage
+FROM node:17 AS server-run
+WORKDIR /root/
+COPY --from=build-stage . .
+COPY package*.json ./
+RUN npm install supervisor --save
+COPY server.js ./
+
+EXPOSE 8181
+
+CMD ["node", "node.js"]
