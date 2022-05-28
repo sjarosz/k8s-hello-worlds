@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dockervue 
+  labels:
+    app: dockervue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dockervue
+  template:
+    metadata:
+      labels:
+        app: dockervue
+    spec:
+      containers:
+      - name: dockervue
+        image: sjarosz/dockervue 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
